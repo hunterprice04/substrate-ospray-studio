@@ -117,6 +117,7 @@ function setFrame(index) {
   editor.set(currFrame);
   setFrameIndexToActive(index);
 }
+
 function addFrame(frame) {
   // add frame to frames
   frames.push(frame);

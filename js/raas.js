@@ -52,6 +52,8 @@ function re_render(scene_graph) {
 	});
 }
 
+
+
 function render_movie(key_frames) {
 	const options = {
 		body: JSON.stringify({
@@ -64,7 +66,31 @@ function render_movie(key_frames) {
 	};
 
 	fetch(`${RAAS_LOCATION}/renderMovie/`, options).then((response) => response.blob()).then((blob) => {
-		const movie_url = URL.createObjectURL(blob);
 		// This approach can be used to download the movie: https://stackoverflow.com/questions/19327749/javascript-blob-filename-without-link
+		// Save Dialog
+		console.log('render_movie')
+		let fname = window.prompt("Save as...");
+
+		// Check json extension in file name
+		if (fname.indexOf(".") === -1) {
+		  fname = fname + ".mp4";
+		} else {
+		  if (fname.split(".").pop().toLowerCase() === "mp4") {
+			// Nothing to do
+		  } else {
+			fname = fname.split(".")[0] + ".mp4";
+		  }
+		}
+
+		const movie_url = URL.createObjectURL(blob);
+		var a = document.createElement("a");
+		document.body.appendChild(a);
+		a.style = "display: none";
+		a.href = movie_url;
+        a.download = fname;
+        a.click();
+        window.URL.revokeObjectURL(url);
+
 	});
 }
+

@@ -1,7 +1,24 @@
-const RAAS_LOCATION = 'http://172.19.54.56:8000';
+// const RAAS_LOCATION = 'http://172.19.54.56:8000';
+const RAAS_LOCATION = 'http://127.0.0.1:5000';
+
+// var loadingDiv = document.getElementById('loading');
+
+function showSpinner() {
+	console.log('showSpinner')
+
+	document.getElementById('loading').style.visibility = 'visible';
+  }
+  
+function hideSpinner() {
+	console.log('hideSpinner')
+	document.getElementById('loading').style.visibility = 'hidden';
+}
 
 function initial_render() {
+	// showSpinner();
+
 	fetch(`${RAAS_LOCATION}/render/`).then((response) => response.blob()).then((blob) => {
+		// hideSpinner()
 		document.querySelector('.render').src = URL.createObjectURL(blob);
 	});
 }
@@ -27,8 +44,10 @@ function re_render(scene_graph) {
 		headers: {'Content-Type': 'application/json'},
 		method: 'POST'
 	};
+	// showSpinner();
 
 	fetch(`${RAAS_LOCATION}/render/`, options).then((response) => response.blob()).then((blob) => {
+		// hideSpinner()
 		document.querySelector('.render').src = URL.createObjectURL(blob);
 	});
 }

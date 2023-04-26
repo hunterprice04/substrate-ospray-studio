@@ -1,9 +1,50 @@
+html,
 body {
-	align-items: center;
-	background-color: #5a5a5a;
-	display: flex;
-	font-family: 'Open Sans', sans-serif;
-	height: 100vh;
-	justify-content: center;
-	margin: 0;
+	height: 100%;
 }
+
+.flex-fill {
+	flex: 1;
+}
+
+
+#jsoneditor {
+	height: 100%;
+}
+
+.render {
+	height: 100%;
+}
+
+/* The heart of the matter */
+.testimonial-group>.row {
+	display: block;
+	overflow-x: auto;
+	white-space: nowrap;
+}
+
+.testimonial-group>.row>.col-4 {
+	display: inline-block;
+}
+
+
+/* Decorations */
+.col-4 {
+	color: #fff;
+	font-size: 48px;
+	padding-bottom: 20px;
+	padding-top: 18px;
+}
+
+/* .col-4:nth-child(n) {
+	background: #adb5bd;
+} */
+.active-frame {
+	background-color: #20c997;
+}
+.inactive-frame {
+	background-color: #adb5bd;
+}
+
+/* .col-4:nth-child(3n+2) { background: #9c6; }
+  .col-4:nth-child(3n+3) { background: #69c; } */

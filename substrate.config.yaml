@@ -1,9 +1,16 @@
 data:
   source:
-    - /root/data/apple  # DON'T CHANGE THIS!
+    - /home/hp/github/research/substrate-ospray-studio/data/ # DON'T CHANGE THIS!
+    # - /home/hp/github/research/substrate-ospray-studio/data # DON'T CHANGE THIS!
+    # - /root/data/apple # DON'T CHANGE THIS!
 
-aws:
-  bucket: {{YOUR_UNIQUE_S3_BUCKET_NAME}}
-  region: us-east-2
-  managers:
-    't3.medium': 1
+docker:
+  port: 5000
+  replicas: 3
+  advertise_addr: 127.0.0.1
+
+# aws:
+#   bucket: substrate-data-hprice7
+#   region: us-east-2
+#   managers:
+#     "t3.medium": 1
